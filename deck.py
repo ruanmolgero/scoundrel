@@ -13,4 +13,15 @@ class Deck:
         random.shuffle(self.cards)
 
     def draw(self):
-        return self.cards.pop() if self.cards else None
+        return self.cards.pop(0) if self.cards else None
+
+    def prepare(self):
+        self.cards = [
+            card for card in self.cards
+            if not (card.suit in {'hearts', 'diamonds'} and card.rank in {'J', 'Q', 'K', 'A'})
+        ]
+
+    def __repr__(self):
+        rows = [", ".join(map(str, self.cards[i:i+13]))
+                for i in range(0, len(self.cards), 13)]
+        return f"Deck({len(self.cards)} cards):\n" + "\n".join(rows)
