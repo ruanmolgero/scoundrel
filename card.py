@@ -6,8 +6,12 @@ class Card:
         'spades': ('♠', '\033[32m')
     }
 
-    def __init__(self, rank, suit):
+    face_values = {'J': 11, 'Q': 12, 'K': 13, 'A': 14}
+
+    def __init__(self, rank: str, suit: str):
         self.rank = rank
+        self.value = int(self.rank) if self.rank.isnumeric(
+        ) else self.face_values[self.rank]
         self.suit = suit
 
     def __repr__(self):
