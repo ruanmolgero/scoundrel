@@ -28,6 +28,5 @@ class Deck:
         ]
 
     def __repr__(self):
-        rows = [", ".join(map(str, self.cards[i:i+13]))
-                for i in range(0, len(self.cards), 13)]
+        rows = [", ".join(map(str, self.cards[i:i+13])) for i in range(0, len(self.cards), 13)]
         return f"Deck({len(self.cards)} cards)\n" + "\n".join(rows)

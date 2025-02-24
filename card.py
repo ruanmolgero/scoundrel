@@ -10,8 +10,7 @@ class Card:
 
     def __init__(self, rank: str, suit: str):
         self.rank = rank
-        self.value = int(self.rank) if self.rank.isnumeric(
-        ) else self.face_values[self.rank]
+        self.value = int(self.rank) if self.rank.isnumeric() else self.face_values[self.rank]
         self.suit = suit
 
     def __repr__(self):
